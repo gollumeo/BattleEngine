@@ -1,0 +1,74 @@
+# ───────────────────────────────────────────────
+# 💠 Normalisation des fins de ligne (WSL <-> Windows)
+# Force LF dans tous les repos — indispensable quand tu switches entre Windows et WSL.
+# ───────────────────────────────────────────────
+* text=auto eol=lf
+
+
+# ───────────────────────────────────────────────
+# 💠 Encodage UTF-8 explicite pour les langages textuels
+# Évite les BOM relous surtout en .NET
+# ───────────────────────────────────────────────
+*.cs   text working-tree-encoding=UTF-8
+*.csproj text working-tree-encoding=UTF-8
+*.sln  text working-tree-encoding=UTF-8
+
+*.php  text working-tree-encoding=UTF-8
+*.js   text working-tree-encoding=UTF-8
+*.ts   text working-tree-encoding=UTF-8
+*.vue  text working-tree-encoding=UTF-8
+*.json text working-tree-encoding=UTF-8
+*.yaml text working-tree-encoding=UTF-8
+*.yml  text working-tree-encoding=UTF-8
+*.md   text working-tree-encoding=UTF-8
+*.html text working-tree-encoding=UTF-8
+*.css  text working-tree-encoding=UTF-8
+
+
+# ───────────────────────────────────────────────
+# 💠 Diff intelligents par langage
+# ───────────────────────────────────────────────
+*.cs   diff=csharp
+*.ps1  diff=powershell
+*.php  diff=php
+*.js   diff=javascript
+*.ts   diff=javascript
+*.vue  diff=html
+*.json diff=json
+*.md   diff=markdown
+*.sql  diff=sql
+
+
+# ───────────────────────────────────────────────
+# 💠 Assets binaires : jamais normalisés, jamais diffés
+# ───────────────────────────────────────────────
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.pdf  binary
+*.zip  binary
+*.tar  binary
+*.gz   binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary
+
+
+# ───────────────────────────────────────────────
+# 💠 Fichiers lock → on ne merge jamais, on garde la version locale
+# Évite les catastrophes dans composer.lock, package-lock, etc.
+# ───────────────────────────────────────────────
+composer.lock merge=ours
+package-lock.json merge=ours
+pnpm-lock.yaml merge=ours
+yarn.lock merge=ours
+
+
+# ───────────────────────────────────────────────
+# 💠 Scripts : garder LF même si exécutés depuis Windows
+# ───────────────────────────────────────────────
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
